@@ -48,7 +48,7 @@ const Modal = () => {
               gsapType="view1"
               controlRef={cameraControlSmall}
               setRotationState={setSmallRotation}
-              item={Modal}
+              item={model}
               size={size}
             />
             <ModelView
@@ -57,7 +57,7 @@ const Modal = () => {
               gsapType="view2"
               controlRef={cameraControlLarge}
               setRotationState={setLargeRotation}
-              item={Modal}
+              item={model}
               size={size}
             />
 

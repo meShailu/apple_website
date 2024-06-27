@@ -25,12 +25,14 @@ const VideoCarousel = () => {
   const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
 
   useGSAP(() => {
+    // slider animation to move the video out of the screen and bring the next video in
     gsap.to("#slider", {
       transform: `translateX(${-100 * videoId}%)`,
       duration: 2,
-      ease: "power2.inOut",
+      ease: "power2.inOut", // show visualizer https://gsap.com/docs/v3/Eases
     });
 
+    // video animation to play the video when it is in the view
     gsap.to("#video", {
       scrollTrigger: {
         trigger: "#video",
@@ -54,18 +56,20 @@ const VideoCarousel = () => {
       // animation to move the indicator
       let anim = gsap.to(span[videoId], {
         onUpdate: () => {
+          // get the progress of the video
           const progress = Math.ceil(anim.progress() * 100);
 
           if (progress != currentProgress) {
             currentProgress = progress;
 
+            // set the width of the progress bar
             gsap.to(videoDivRef.current[videoId], {
               width:
                 window.innerWidth < 760
-                  ? "10vw"
+                  ? "10vw" // mobile
                   : window.innerWidth < 1200
-                  ? "10vw"
-                  : "4vw",
+                  ? "10vw" // tablet
+                  : "4vw", // laptop
             });
 
             // set the background color of the progress bar
@@ -93,6 +97,7 @@ const VideoCarousel = () => {
         anim.restart();
       }
 
+      // update the progress bar
       const animUpdate = () => {
         anim.progress(
           videoRef.current[videoId].currentTime /
