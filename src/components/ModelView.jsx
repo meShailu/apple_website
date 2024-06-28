@@ -14,20 +14,19 @@ const ModelView = ({
   groupRef,
   gsapType,
   controlRef,
-  setRotationSize,
+  setRotationState, // Correct prop name for setting rotation state
   size,
   item,
 }) => {
-  {
-    console.log("deep", { ...item });
-  }
+  console.log("deep", { item }); // Corrected log statement
+
   return (
     <View
       index={index}
       id={gsapType}
-      className={` w-full h-full {index===2}? "right-[-100%:""]`}
+      className={`w-full h-full ${index === 2 ? "right-[-100%]" : ""}`} // Corrected className syntax
     >
-      {/* //ambient light */}
+      {/* ambient light */}
       <ambientLight intensity={0.3} />
 
       <PerspectiveCamera makeDefault position={[0, 0, 4]} />
@@ -44,7 +43,7 @@ const ModelView = ({
       />
       <group
         ref={groupRef}
-        name={`${index === 1}? "small:"large`}
+        name={index === 1 ? "small" : "large"} // Corrected ternary usage
         position={[0, 0, 0]}
       >
         <Suspense
@@ -55,7 +54,7 @@ const ModelView = ({
           }
         >
           <Iphone
-            scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
+            scale={index === 1 ? [15, 15, 15] : [17, 17, 17]} // Corrected ternary usage
             item={item}
             size={size}
           />
