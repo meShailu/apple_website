@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 import { useEffect, useRef, useState } from "react";
+import { explore1Img, explore2Img, exploreVideo } from "../utils";
 
 import { hightlightsSlides } from "../constants";
 import { pauseImg, playImg, replayImg } from "../utils";
@@ -92,7 +93,6 @@ const VideoCarousel = () => {
           }
         },
       });
-
       if (videoId == 0) {
         anim.restart();
       }
