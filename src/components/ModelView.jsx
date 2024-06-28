@@ -14,17 +14,17 @@ const ModelView = ({
   groupRef,
   gsapType,
   controlRef,
-  setRotationState, // Correct prop name for setting rotation state
+  setRotationState,
   size,
   item,
 }) => {
-  console.log("deep", { item }); // Corrected log statement
+  // Corrected log statement
 
   return (
     <View
       index={index}
       id={gsapType}
-      className={`w-full h-full ${index === 2 ? "right-[-100%]" : ""}`} // Corrected className syntax
+      className={`w-full h-full absolute ${index === 2 ? "right-[-100%]" : ""}`}
     >
       {/* ambient light */}
       <ambientLight intensity={0.3} />
