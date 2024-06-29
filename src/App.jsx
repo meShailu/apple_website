@@ -5,6 +5,7 @@ import Highlights from "./components/Highlights";
 import Modal from "./components/Modal";
 import Features from "./components/Features";
 import * as Sentry from "@sentry/react";
+import HowITWorks from "./components/HowITWorks";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Highlights />
       <Modal />
       <Features />
+      <HowITWorks />
     </main>
   );
 }
