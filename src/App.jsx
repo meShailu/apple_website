@@ -6,6 +6,7 @@ import Modal from "./components/Modal";
 import Features from "./components/Features";
 import * as Sentry from "@sentry/react";
 import HowITWorks from "./components/HowITWorks";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Modal />
       <Features />
       <HowITWorks />
+      <Footer />
     </main>
   );
 }
